@@ -11,7 +11,7 @@ dependencies {
 
 tasks {
     named<ShadowJar>("shadowJar") {
-        archiveBaseName.set("gradleHelloWorld")
+        archiveBaseName.set("gradleHomework")
         archiveVersion.set("0.1")
         archiveClassifier.set("")
         manifest {
