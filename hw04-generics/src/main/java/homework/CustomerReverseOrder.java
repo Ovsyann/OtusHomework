@@ -1,24 +1,21 @@
 package homework;
 
 
-import java.util.Comparator;
-import java.util.SortedMap;
-import java.util.TreeMap;
-import java.util.TreeSet;
+import java.util.*;
 
 public class CustomerReverseOrder {
 
     //todo: 2. надо реализовать методы этого класса
     //надо подобрать подходящую структуру данных, тогда решение будет в "две строчки"
-    TreeSet<Customer> container = new TreeSet<>(Comparator.comparingLong(Customer::getScores));
+    Stack<Customer> container = new Stack<>();
 
     public void add(Customer customer) {
 
-        container.add(new Customer(customer.getId(), customer.getName(), customer.getScores()));
+        container.push(new Customer(customer.getId(), customer.getName(), customer.getScores()));
     }
 
     public Customer take() {
 
-        return container.pollLast(); // это "заглушка, чтобы скомилировать"
+        return container.pop(); // это "заглушка, чтобы скомилировать"
     }
 }
