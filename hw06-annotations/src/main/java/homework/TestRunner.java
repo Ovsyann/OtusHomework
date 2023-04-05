@@ -14,8 +14,6 @@ public class TestRunner {
     public static void runAllTests(String testClassName) throws ClassNotFoundException {
 
         initiate(testClassName);
-        //runTests();
-        //getResult();
     }
 
 
@@ -49,6 +47,8 @@ public class TestRunner {
         for (String methodName : tests) {
             runTest(ReflectionHelper.instantiate(type), methodName, befores, afters);
         }
+
+        getResult();
     }
 
     private static void runTest(Object instance, String methodName,
@@ -56,24 +56,27 @@ public class TestRunner {
 
         try{
             for (String name : befores) {
-                ReflectionHelper.callMethod(instance, methodName);
+                ReflectionHelper.callMethod(instance, name);//TODO:подумать над аргументами, если они есть
             }
 
             ReflectionHelper.callMethod(instance, methodName);
 
-            for (String name : befores) {
-                ReflectionHelper.callMethod(instance, methodName);
+            for (String name : afters) {
+                ReflectionHelper.callMethod(instance, name);
             }
 
-
+            //TODO: записать успех в результат
+            System.out.println("Success " + methodName);
         }
         catch(Exception e){
-
+            //TODO: записать ошибку в результат
+            System.out.println("Fail " + methodName + ": " + e);
         }
     }
 
     private static void getResult() {
 
-
+        //TODO: нужна логика результатов
+        System.out.println("We got all results");
     }
 }
