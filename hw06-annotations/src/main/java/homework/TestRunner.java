@@ -56,7 +56,7 @@ public class TestRunner {
 
         try{
             for (String name : befores) {
-                ReflectionHelper.callMethod(instance, name);//TODO:подумать над аргументами, если они есть
+                ReflectionHelper.callMethod(instance, name);
             }
 
             ReflectionHelper.callMethod(instance, methodName);
