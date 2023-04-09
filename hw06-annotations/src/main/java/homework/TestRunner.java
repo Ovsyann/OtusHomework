@@ -6,7 +6,6 @@ import homework.annotations.Test;
 
 import java.lang.reflect.Method;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class TestRunner {
@@ -44,15 +43,16 @@ public class TestRunner {
     private static void runTests(Class<?> type, List<String> tests,
                                  List<String> befores, List<String> afters) {
 
+        TestResult result = new TestResult();
         for (String methodName : tests) {
-            runTest(ReflectionHelper.instantiate(type), methodName, befores, afters);
+            runTest(ReflectionHelper.instantiate(type), methodName, befores, afters, result);
         }
 
-        getResult();
+        printResult(result);
     }
 
     private static void runTest(Object instance, String methodName,
-                                List<String> befores, List<String> afters) {
+                                List<String> befores, List<String> afters, TestResult results) {
 
         try{
             for (String name : befores) {
@@ -65,18 +65,17 @@ public class TestRunner {
                 ReflectionHelper.callMethod(instance, name);
             }
 
-            //TODO: записать успех в результат
-            System.out.println("Success " + methodName);
+            results.add("Success " + methodName);
         }
         catch(Exception e){
-            //TODO: записать ошибку в результат
-            System.out.println("Fail " + methodName + ": " + e);
+            results.add("Fail " + methodName + ": " + e);
         }
     }
 
-    private static void getResult() {
+    private static void printResult(TestResult results) {
 
-        //TODO: нужна логика результатов
-        System.out.println("We got all results");
+        for (String result : results.getResults()) {
+            System.out.println(result);
+        }
     }
 }
