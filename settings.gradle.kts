@@ -1,6 +1,10 @@
 rootProject.name = "JavaHomework"
 include ("hw01-gradle")
 include ("hw04-generics")
+include ("hw06-annotations")
+include ("hw08-gc")
+include("hw08-gc:demo")
+include("hw08-gc:homework")
 
 
 pluginManagement {
