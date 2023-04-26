@@ -7,6 +7,7 @@ include("hw08-gc:demo")
 include("hw08-gc:homework")
 
 
+
 pluginManagement {
     val jgitver: String by settings
     val dependencyManagement: String by settings
