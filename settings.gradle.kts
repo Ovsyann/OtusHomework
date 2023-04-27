@@ -8,6 +8,7 @@ include("hw08-gc:homework")
 include ("hw10-byteCodes")
 
 
+
 pluginManagement {
     val jgitver: String by settings
     val dependencyManagement: String by settings
