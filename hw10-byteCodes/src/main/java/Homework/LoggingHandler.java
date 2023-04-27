@@ -26,7 +26,8 @@ public class LoggingHandler implements java.lang.reflect.InvocationHandler {
                                 method.getParameterTypes()
                         )
                         .isAnnotationPresent(Log.class)
-        ){
+        )
+        {
             System.out.println("Invoking method:" + method.getName() + " params:" + Arrays.toString(args));
         }
 
