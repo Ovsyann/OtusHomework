@@ -8,29 +8,36 @@ import java.util.Arrays;
 public class LoggingHandler implements java.lang.reflect.InvocationHandler {
 
     private final TestLoggingInterface instance;
-    private final Class<?> instanceClass;
+    private final Method[] methods;
 
     LoggingHandler(TestLoggingInterface instance) {
 
         this.instance = instance;
-        instanceClass = instance.getClass();
+        methods = instance.getClass().getDeclaredMethods();
     }
 
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
 
-        if(
-                instanceClass
-                        .getDeclaredMethod(
-                                method.getName(),
-                                method.getParameterTypes()
-                        )
-                        .isAnnotationPresent(Log.class)
-        )
-        {
+        if(hasLogAnnotation(method)){
+
             System.out.println("Invoking method:" + method.getName() + " params:" + Arrays.toString(args));
         }
 
         return method.invoke(instance, args);
+    }
+
+    private boolean hasLogAnnotation(Method interfaceMethod){
+
+        for (Method method: methods) {
+
+            if (method.getName().equals(interfaceMethod.getName())
+                    && Arrays.equals(method.getParameterTypes(), interfaceMethod.getParameterTypes())){
+
+                return method.isAnnotationPresent(Log.class);
+            }
+        }
+
+        return false;
     }
 }
