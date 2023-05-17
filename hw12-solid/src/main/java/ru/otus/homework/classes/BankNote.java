@@ -7,10 +7,6 @@ public class BankNote {
         this.denomination = denomination;
     }
 
-    public Denomination getDenomination() {
-        return denomination;
-    }
-
     public int getValue(){
         return denomination.getValue();
     }

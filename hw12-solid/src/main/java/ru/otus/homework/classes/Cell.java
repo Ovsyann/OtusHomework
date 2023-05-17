@@ -12,7 +12,7 @@ public class Cell {
         this.denomination = denomination;
     }
 
-    public void setBankNote(BankNote bankNote){
+    public void putBankNote(BankNote bankNote){
         bankNotes.push(bankNote);
     }
 
