@@ -4,8 +4,8 @@ import java.util.Stack;
 
 public class Cell {
 
-    private Stack<BankNote> bankNotes = new Stack<>();
-    private Denomination denomination;
+    private final Stack<BankNote> bankNotes = new Stack<>();
+    private final Denomination denomination;
 
     public Cell(Denomination denomination){
 

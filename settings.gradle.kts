@@ -6,8 +6,7 @@ include ("hw08-gc")
 include("hw08-gc:demo")
 include("hw08-gc:homework")
 include ("hw10-byteCodes")
-include ("hw12-solid")
-
+include("hw12-solid")
 
 
 pluginManagement {
