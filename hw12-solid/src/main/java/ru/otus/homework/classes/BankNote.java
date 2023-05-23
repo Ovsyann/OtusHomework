@@ -8,6 +8,13 @@ public class BankNote {
     }
 
     public int getValue(){
+
         return denomination.getValue();
     }
+
+    public Denomination getDenomination(){
+
+        return denomination;
+    }
+
 }

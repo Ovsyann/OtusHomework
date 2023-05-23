@@ -17,10 +17,17 @@ public class Cell {
     }
 
     public BankNote getBankNote(){
+
         return bankNotes.pop();
     }
 
+    public int getCount(){
+
+        return bankNotes.size();
+    }
+
     public Denomination getDenomination() {
+
         return denomination;
     }
 }
