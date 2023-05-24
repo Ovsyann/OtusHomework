@@ -21,7 +21,7 @@ idea {
 
 
 allprojects {
-    group = "ru.home"
+    group = "ru.otus"
 
     repositories {
         mavenLocal()

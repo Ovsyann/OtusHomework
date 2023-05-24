@@ -5,6 +5,8 @@ include ("hw06-annotations")
 include ("hw08-gc")
 include("hw08-gc:demo")
 include("hw08-gc:homework")
+include("hw15-structuralPatterns:demo")
+include("hw15-structuralPatterns:homework")
 
 
 
