@@ -9,6 +9,8 @@ include ("hw10-byteCodes")
 include("hw12-solid")
 
 
+
+
 pluginManagement {
     val jgitver: String by settings
     val dependencyManagement: String by settings
