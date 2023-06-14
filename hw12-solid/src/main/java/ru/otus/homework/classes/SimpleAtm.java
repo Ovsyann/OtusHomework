@@ -13,11 +13,11 @@ public class SimpleAtm implements Atm{
     @Override
     public BankNote[] getBanknotes(int sum){
 
-        if(sum % Denomination.ONE_HUNDRED.getValue() != 0){
-            throw new RuntimeException("too small sum: " + sum);
-        }
-
         NeededSum neededSum = new NeededSum(sum);
+        if(cantGet(neededSum)){
+
+            throw new RuntimeException("Can not get: " + sum);
+        }
 
         int thousandsAmount = getBankNotesAmount(neededSum, Denomination.ONE_THOUSAND);
         int fiveHundredsAmount = getBankNotesAmount(neededSum, Denomination.FIVE_HUNDRED);
@@ -26,6 +26,10 @@ public class SimpleAtm implements Atm{
 
         return getBanknotesFromCells(thousandsAmount, fiveHundredsAmount,
                 twoHundredsAmount, oneHundredsAmount);
+    }
+
+    private static boolean cantGet(NeededSum sum) {
+        return sum.getValue() % Denomination.ONE_HUNDRED.getValue() != 0;
     }
 
     @Override
